@@ -1,0 +1,70 @@
+<section class="vh-100" style="background-color: #2e504b;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="assets\pexels-wavyvisuals-377312923-18748241.jpg" alt="showroom form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <h1 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Showroom Information Form</h1>
+                  <label style="color:green;" class="f-2">{{message}}</label><br>
+                  <label style="color:red;" class="f-2">{{message2}}</label><br>
+                  <form [formGroup]="formShowroom" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="hidden" class="form-control" formControlName="id" placeholder="Showroom ID" style="padding:20px" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="text" class="form-control" formControlName="name" placeholder="Name" style="padding:20px">
+                      </div>
+                      <div *ngIf="f['name'].touched && f['name'].invalid" style="color:red;" class="msgerror">
+                        <div *ngIf="f['name'].errors && f['name'].errors['required']">*Name is required.</div>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="text" class="form-control" formControlName="address" placeholder="Address" style="padding:20px">
+                      </div>
+                      <div *ngIf="f['address'].touched && f['address'].invalid" style="color:red;" class="msgerror">
+                        <div *ngIf="f['address'].errors && f['address'].errors['required']">*Address is required.</div>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="text" class="form-control" formControlName="contact_number" placeholder="Contact Number" style="padding:20px">
+                      </div>
+                      <div *ngIf="f['contact_number'].touched && f['contact_number'].invalid" style="color:red;" class="msgerror">
+                        <div *ngIf="f['contact_number'].errors && f['contact_number'].errors['required']">*Contact Number is required.</div>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="email" class="form-control" formControlName="email" placeholder="Email" style="padding:20px">
+                      </div>
+                      <div *ngIf="f['email'].touched && f['email'].invalid" style="color:red;" class="msgerror">
+                        <div *ngIf="f['email'].errors && f['email'].errors['required']">*Email is required.</div>
+                        <div *ngIf="f['email'].errors && f['email'].errors['email']">*Invalid email format.</div>
+                      </div>
+                    </div>
+  
+                    <div class="pt-1 mb-4">
+                      <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg btn-block">Submit</button>
+                    </div>
+  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,304 @@
+<head>
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body
+  class="d-flex h-125vh text-center text-white bg-dark"
+  style="
+    background-image: url('../../assets/cart0.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    object-fit: cover; /* Do not scale the image */
+    border-radius: 1rem; /* Add some rounded corners */
+  "
+>
+  <div class="cover-container d-flex w-100 h-200 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand me-3" href="#">
+            <img
+              src="../../assets/rims.png"
+              alt="RIMS"
+              class="d-inline-block align-top"
+              width="100"
+              height="50"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav font-weight-bold">
+              <li class="nav-item">
+                <a class="nav-link" href="/wish-list"
+                  ><i class="bi bi-heart bi-heart-fill"></i
+                ></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cart"
+                  ><i class="bi bi-cart-fill bi-cart-fill-fill"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="px-3">
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container-fluid">
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav font-weight-bold">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/home">Home</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Pages
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+                  <a class="dropdown-item text-secondary" href="/category"
+                    >Category</a
+                  >
+                  <a class="dropdown-item text-secondary" href="/detail"
+                    >Detail</a
+                  >
+                  <a class="dropdown-item text-secondary" href="/cart">Cart</a>
+                  <a class="dropdown-item text-secondary" href="/wish-list"
+                    >Wishlist</a
+                  >
+                  <a class="dropdown-item text-secondary" href="/maintenance"
+                    >Maintenance</a
+                  >
+                  <a class="dropdown-item text-secondary" href="/check-out"
+                    >Check Out</a
+                  >
+
+                  <div class="dropdown-divider"></div>
+
+                  <a class="dropdown-item text-secondary" href="/blog">Blog</a>
+                  <a class="dropdown-item text-secondary" href="/contact-us"
+                    >Contact Us</a
+                  >
+                  <a class="dropdown-item text-secondary" href="/about-us"
+                    >About Us</a
+                  >
+                  <a class="dropdown-item text-secondary" href="/not-found"
+                    >Not Found</a
+                  >
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Extra Pages
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+                  <a class="dropdown-item text-secondary" href="/login"
+                    >Login</a
+                  >
+                  <a class="dropdown-item text-secondary" href="/register"
+                    >Register</a
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <h1 class="cover-heading">
+        Cart
+        <span class="fw-bold" style="color: #dd3333">Page</span>
+      </h1>
+    </main>
+  </div>
+</body>
+
+<div class="container mt-5 ">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2 class="fw-bold mt-5"><strong>Shopping Cart</strong></h2>
+      <span class="line-grey"></span>
+      <span class="line-orange"></span>
+      <span class="line-grey"></span>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="car-specs-container p-4 shadow-lg " >
+    <div class="row">
+      <div class="col-12 text-right mb-3" style="cursor: pointer">
+        <i class="fas fa-trash delete-icon"></i>
+      </div>
+
+      <div class="col-md-6">
+        <img
+          src="../../assets/cart1.jpg"
+          alt="Car Model Image"
+          class="car-image mt-3"
+        />
+      </div>
+
+      <div class="col-md-6 shadow-sm ">
+        <h2 class="spec-title mb-5">Ghibli S Q4</h2>
+
+        <div class="row mt-4 mt-md-0">
+          <div class="col-6 spec-title">Stocks</div>
+          <div class="col-6 spec-value">
+            <input
+              type="number"
+              min="1"
+              max="5"
+              value="1"
+              class="form-control w-50"
+            />
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6 spec-title">Engine Layout</div>
+          <div class="col-6 spec-value">V8</div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6 spec-title">Displacement</div>
+          <div class="col-6 spec-value">2639 cc</div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6 spec-title">Max Speed</div>
+          <div class="col-6 spec-value">270 km/h</div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6 spec-title">Max Power</div>
+          <div class="col-6 spec-value">450 HP</div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6 spec-title">Traction</div>
+          <div class="col-6 spec-value">RWD</div>
+        </div>
+
+        <div class="row mt-4 mb-2">
+          <div class="col-12 text-right">
+            <button class="btn text-white "style="background-color: #dd3333;">Proceed To Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="car-specs-container p-4 mt-5 shadow-lg" >
+    <div class="row">
+      <div class="col-12 text-right mb-3" style="cursor: pointer">
+        <i class="fas fa-trash delete-icon"></i>
+      </div>
+
+      <div class="col-md-6">
+        <img
+          src="../../assets/cart2.jpg"
+          alt="Car Model Image"
+          class="car-image mt-3"
+        />
+      </div>
+
+      <div class="col-md-6 shadow-sm" >
+        <h2 class="spec-title mb-5">Ghibli S</h2>
+
+        <div class="row mt-4 mt-md-0">
+          <div class="col-6 spec-title">Stocks</div>
+          <div class="col-6 spec-value">
+            <input
+              type="number"
+              min="1"
+              max="5"
+              value="1"
+              class="form-control w-50"
+            />
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-6 spec-title">Engine Layout</div>
+          <div class="col-6 spec-value">V8</div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6 spec-title">Displacement</div>
+          <div class="col-6 spec-value">2639 cc</div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6 spec-title">Acceleration</div>
+          <div class="col-6 spec-value">6.5 sec</div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6 spec-title">Max Speed</div>
+          <div class="col-6 spec-value">270 km/h</div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6 spec-title">Max Power</div>
+          <div class="col-6 spec-value">450 HP</div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6 spec-title">Traction</div>
+          <div class="col-6 spec-value">RWD</div>
+        </div>
+
+        <div class="row mt-4 mb-2">
+          <div class="col-12 text-right">
+            <button class="btn text-white "style="background-color: #dd3333;">Proceed To Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

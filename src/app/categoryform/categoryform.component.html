@@ -1,0 +1,94 @@
+<section class="vh-100" style="background-color: #2e504b;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="assets/Screenshot (597).png"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <h1 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Category Info Form</h1>
+                  <label style="color:green;" class="f-2">{{message}}</label><br>
+                  <label style="color:red;" class="f-2">{{message2}}</label><br>
+                  <form [formGroup]="formpcategory" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="hidden" class="form-control" formControlName="id" placeholder="Category ID" readonly>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="text" class="form-control" formControlName="name" placeholder="Category Name" style="padding:20px">
+                      </div>
+                      <div *ngIf="f['name'].touched && f['name'].invalid" style="color:red;" class="msgerror">
+                        <div *ngIf="f['name'].errors && f['name'].errors['required']">*Category Name is required.</div>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="text" class="form-control" formControlName="pd_name" placeholder="Product Name" style="padding:20px">
+                      </div>
+                      <div *ngIf="f['pd_name'].touched && f['pd_name'].invalid" style="color:red;" class="msgerror">
+                        <div *ngIf="f['pd_name'].errors && f['pd_name'].errors['required']">*Product Name is required.</div>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="file">Image Upload</label><br><br>
+                      <input type="file" id="uploadImage" class="form-control" name="uploadFile[]" (change)="onFileChange($event)" accept=".png, .jpg, .jpeg, .gif">
+                    </div><br>
+  
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="text" class="form-control" formControlName="description" placeholder="Description" style="padding:20px">
+                      </div>
+                      <div *ngIf="f['description'].touched && f['description'].invalid" style="color:red;" class="msgerror">
+                        <div *ngIf="f['description'].errors && f['description'].errors['required']">*Description is required.</div>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="text" class="form-control" formControlName="price" placeholder="Price" style="padding:20px">
+                      </div>
+                      <div *ngIf="f['price'].touched && f['price'].invalid" style="color:red;" class="msgerror">
+                        <div *ngIf="f['price'].errors && f['price'].errors['required']">*Price is required.</div>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="text" class="form-control" formControlName="speed" placeholder="Speed" style="padding:20px">
+                      </div>
+                      <div *ngIf="f['speed'].touched && f['speed'].invalid" style="color:red;" class="msgerror">
+                        <div *ngIf="f['speed'].errors && f['speed'].errors['required']">*Speed is required.</div>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="text" class="form-control" formControlName="type" placeholder="Type" style="padding:20px">
+                      </div>
+                      <div *ngIf="f['type'].touched && f['type'].invalid" style="color:red;" class="msgerror">
+                        <div *ngIf="f['type'].errors && f['type'].errors['required']">*Type is required.</div>
+                      </div>
+                    </div>
+  
+                    <div class="pt-1 mb-4">
+                      <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+                    </div>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

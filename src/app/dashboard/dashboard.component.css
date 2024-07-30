@@ -1,0 +1,147 @@
+/* Card Styling */
+.card-header {
+  background-color: #f8f9fa;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-footer {
+  text-align: center;
+}
+
+/* Table Styling */
+.table img {
+  object-fit: cover;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    display: none;
+  }
+}
+img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.box {
+  margin: 10px;
+  padding: 10px;
+  font-size: 25px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  background-color: #393a3b;
+  border-radius: 20px;
+  box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: 1s ease;
+}
+.box:hover {
+  scale: 0.8;
+  box-shadow: 0 30px 35px 0 rgba(0, 0, 0, 0.5);
+  background-color: #f8f9fa;
+  color: #393a3b;
+}
+.icon {
+  font-size: 50px;
+}
+.box2 {
+  background-color: #820000;
+  color: white;
+  box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: 1s ease;
+  border-radius: 20px;
+}
+.box2:hover {
+  background-color: #348467;
+  color: white;
+  scale: 0.9;
+}
+
+.reports {
+  padding: 20px 50px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  background-color: #1e6844;
+  /* border-radius: 20px; */
+  box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: 1s ease;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.reports:hover {
+  background-color: #f8f9fa;
+  color: #1e6844;
+  scale: 0.9;
+  box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.3);
+
+  font-weight: bold;
+}
+.card a {
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  padding: 20px 50px;
+}
+.card a .foot:hover {
+  color: #016434;
+}
+.boxshow,
+.boxpd,
+.boxcat,
+.boxuser,
+.boxpost {
+  padding: 10px 50px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  background-color: #044a28;
+  /* border-radius: 20   */
+  box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: 1s ease;
+}
+.boxshow:hover,
+.boxpd:hover,
+.boxcat:hover {
+  background-color: #f8f9fa;
+  color: #016434;
+  scale: 0.9;
+  box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+}
+a:hover {
+  text-decoration: none;
+  color: #1e6844;
+}
+.boxuser:hover {
+  background-color: #6b0606;
+  color: #fbfcfc;
+  box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+}
+.boxpost:hover {
+  background-color: #5d5959;
+  color: #fbfcfc;
+  box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.6);
+}
+.base:hover {
+  background-color: #f8f9fa;
+  color: #016434;
+}

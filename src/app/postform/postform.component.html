@@ -1,0 +1,55 @@
+<section class="vh-100" style="background-color: #2e504b;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="assets\pexels-matej-simko-809440051-20193491.jpg" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <h1 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Post Information Form</h1>
+                  <label style="color:green;" class="f-2">{{message}}</label><br>
+                  <label style="color:red;" class="f-2">{{message2}}</label><br>
+                  <form [formGroup]="formPost" enctype="multipart/form-data">
+                    <!-- Hidden input for user_id -->
+                    <input type="hidden" formControlName="user_id">
+  
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <input type="text" class="form-control" formControlName="title" placeholder="Post Title" style="padding:20px">
+                      </div>
+                      <div *ngIf="f['title'].touched && f['title'].invalid" style="color:red;" class="msgerror">
+                        <div *ngIf="f['title'].errors && f['title'].errors['required']">*Title is required.</div>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="file">Image Upload</label><br><br>
+                      <input type="file" id="uploadImage" class="form-control" name="uploadFile[]" (change)="onFileChange($event)" accept=".png, .jpg, .jpeg, .gif">
+                    </div><br>
+  
+                    <div class="form-group">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <textarea class="form-control" formControlName="body" placeholder="Post Body" style="padding:20px"></textarea>
+                      </div>
+                      <div *ngIf="f['body'].touched && f['body'].invalid" style="color:red;" class="msgerror">
+                        <div *ngIf="f['body'].errors && f['body'].errors['required']">*Body is required.</div>
+                      </div>
+                    </div>
+  
+                    <div class="pt-1 mb-4">
+                      <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg btn-block" (click)="onSubmit()">Submit</button>
+                    </div>
+  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

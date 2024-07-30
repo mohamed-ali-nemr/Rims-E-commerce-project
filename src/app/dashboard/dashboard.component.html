@@ -1,0 +1,473 @@
+<app-header></app-header>
+
+<div class="container mt-4">
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-center align-items-center">
+        <h1
+          style="
+            border-radius: 10px;
+            border: 1px solid gray;
+            padding: 20px;
+            background-color: rgb(255, 255, 255);
+            
+          "
+        >
+          Dashboard
+        </h1>
+      </div>
+      <br /><br /><br />
+      <!-- //info in face -->
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="card text-center box">
+            <div class="card-body">
+              <i class="fas fa-business-time"></i>
+              <h5 class="card-title">Time Now</h5>
+              <p class="card-text">
+                <span id="time">{{ time }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div
+            class="card text-center box"
+            style="background-color: rgb(43, 149, 90)"
+          >
+            <div class="card-body">
+              <i class="fas fa-chart-line icon"></i>
+              <h5 class="card-title">Total Revenue</h5>
+              <p class="card-text">11,123,345.00</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center box">
+            <div class="card-body">
+              <i class="fas fa-universal-access" style="font-size: 50px"></i>
+              <h5 class="card-title">Customer Visits</h5>
+              <p class="card-text">
+                <span id="visits"> {{ visits }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br /><br /><br />
+      <br /><br /><br />
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <div class="card text-center box2">
+            <div class="card-body">
+              <i class="fas fa-file-invoice" style="font-size: 50px"></i>
+              <h5 class="card-title" style="font-size: 40px">Reports</h5>
+              <p class="card-text">
+                <span id="time">{{ reports }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br /><br /><br />
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="reports">
+            <a href="orderlist-dashboard"
+              >Orders Done <i class="fas fa-list-alt"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="reports">
+            <a href="orderlist-dashboard"
+              >BEST SALE <i class="fas fa-dollar-sign"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="reports">
+            <a href="maintenceorderlist-dashboard"
+              >Mantaince <i class="fas fa-exclamation-circle"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <br /><br /><br />
+
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="card text-center boxuser">
+            <a href="userlist-dashboard">
+              <span class="">USERS <i class="fas fa-users"></i></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card text-center boxpost">
+            <a href="postlist-dashboard">
+              <span class="">POSTS <i class="fas fa-blog"></i></span
+            ></a>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+      <div class="row mt-4">
+        <div class="d-flex justify-content-center align-items-center">
+          <h1
+            style="
+              border-radius: 10px;
+              border: 1px solid gray;
+              padding: 20px;
+              background-color: rgb(255, 255, 255);
+            "
+          >
+            Departments
+          </h1>
+        </div>
+        <br /><br /><br />
+      </div>
+      <br /><br /><br />
+      <div class="row mt-4">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="card text-center boxcat base">
+            <a href="categorylist-dashboard">
+              <span class="foot"
+                >Category List <i class="fas fa-certificate"></i
+              ></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+
+      <div class="row mt-4">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="card text-center boxpd base">
+            <a href="productlist-dashboard">
+              <span class="foot"
+                >Product List <i class="fas fa-shopping-cart"></i
+              ></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+
+      <div class="row mt-4">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="card text-center boxshow base">
+            <a href="showroomlist-dashboard">
+              <span class="foot"
+                >Showroom List <i class="fas fa-map-marked-alt"></i
+              ></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+
+      <!-- category -->
+      <!-- <div class="row mt-4">
+      <div class="main-card mb-3 card">
+        <div class="card-header">
+          <h4 class="card-header-title font-size-lg text-capitalize font-weight-normal">Category List</h4>
+        </div>
+        <div class="d-block p-4 text-center card-footer">
+          <button class="btn-pill btn-shadow btn-wide fsize-2 btn btn-success btn-lg" onclick="location.href='categoryform';">
+            <span class="mr-2 opacity-7"><i class="fa fa-cog fa-spin"></i> Insert</span>
+          </button>
+          <button id="btn-restore" class="btn-pill btn-dark btn-wide fsize-2 btn btn-warning btn-lg">
+            <span class="mr-2 opacity-7"><i class="fa fa-cog fa-spin"></i> Restore</span>
+          </button>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="align-middle text-truncate mb-0 table table-borderless table-hover">
+          <thead>
+            <tr>
+              <th class="text-center">ID</th>
+              <th class="text-center">Image</th>
+              <th class="text-center">Name</th>
+              <th class="text-center"><i class="fas fa-file"></i></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of category | paginate: { itemsPerPage: 3, currentPage: p }">
+              <td class="text-center">
+                {{c.id}}
+              </td>
+              <td class="text-center" style="width: 80px;">
+                <img [src]="'http://localhost/FirstLaravel-app/public/storage/' + c.images" alt="{{ c.name }}" style="width: 50px;height:50px;">
+              </td>
+              <td class="text-center">
+                {{c.name}}
+              </td>
+              <td class="text-center">
+                <div class="btn-group-sm btn-group" role="group">
+                  <a class="btn btn-secondary btn-sm text-center" href="categorydetails/{{c.id}}"> <i class="fas fa-info-circle"></i> Details</a>
+                  <a class="btn btn-info btn-sm text-center" href="categoryform/{{c.id}}"> <i class="fas fa-wrench"></i> Update</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table><br>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div> -->
+
+      <!-- post -->
+      <!-- <div class="row mt-4">
+          <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-header">
+                    <h4 class="card-header-title font-size-lg text-capitalize font-weight-normal">Posts List</h4>
+                    </div>
+                <div class="d-block p-4 text-center card-footer">
+                  <button class="btn-pill btn-shadow btn-wide fsize-4 btn btn-success btn-lg" onclick="location.href='postform';">
+                    <span class="mr-2 opacity-7"><i class="fa fa-cog fa-spin"></i> Insert</span>
+                </button>
+                
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    
+                <table class="align-middle text-truncate mb-0 table table-borderless table-hover">
+                  <thead>
+                    <tr>
+                      <th class="text-center">ID</th>
+                      <th class="text-center">TITLE</th>
+                      <th class="text-center">Image</th>
+                      <th class="text-center">Body</th>
+                      <th class="text-center">Created_At</th>
+                      <th class="text-center"><i class="fas fa-file"></i></th>    
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let p of posts | paginate: { itemsPerPage: 3, currentPage: p }">
+                      <td class="text-center">{{p.id}}</td>
+                      <td class="text-center">{{p.title}}</td>
+                      <td class="text-center" style="width: 80px;">
+                        
+                        <img [src]="'http://localhost/FirstLaravel-app/public/storage/' + p.images" alt="..." >
+                    </td>
+                      <td class="text-center">{{p.body}}</td>
+                      <td class="text-center">{{p.created_at}}</td>
+                      <td class="text-center">
+                        <div class="btn-group-sm btn-group" role="group">
+                          <a class="btn btn-secondary btn-sm text-center" href="postdetails/{{p.id}}"><i class="fas fa-info-circle"></i>Details</a>
+                          <a class="btn btn-info btn-sm text-center" href="postform/{{p.id}}"><i class="fas fa-wrench"></i>Update</a>
+                          
+                        </div>
+                    </tr>
+                   
+                  </tbody>
+                </table>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+            </div>
+            </div> -->
+
+      <!-- //product -->
+      <!-- <div class="row mt-4">
+        
+            <div class="main-card mb-3 card">
+              <div class="card-header">
+                  <h4 class="card-header-title font-size-lg text-capitalize font-weight-normal">Product List</h4>
+                  </div>
+              <div class="d-block p-4 text-center card-footer">
+                <button class="btn-pill btn-shadow btn-wide fsize-2 btn btn-success btn-lg" onclick="location.href='productform';">
+                  <span class="mr-2 opacity-7"><i class="fa fa-cog fa-spin"></i> Insert</span>
+              </button>
+              
+                  </div>
+              </div>
+              <div class="table-responsive">
+                  <table class="align-middle text-truncate mb-0 table table-borderless table-hover">
+                      <thead>
+                          <tr>
+                              <th class="text-center">ID</th>
+                              <th class="text-center">Image</th>
+                              <th class="text-center">Name</th>
+                              <th class="text-center">Description</th>
+                              <th class="text-center">Price</th>
+                              <th class="text-center">Speed</th>
+                              <th class="text-center">Brand</th>  
+                              <th class="text-center"><i class="fas fa-file"></i></th>                            
+                            
+                              
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let p of products | paginate: { itemsPerPage: 3, currentPage: p }">
+                            
+                             
+                              <td class="text-center">
+                                  {{p.id}}
+                              </td>
+                              <td class="text-center" style="width: 80px;">
+                                
+                                <img [src]="'http://localhost/FirstLaravel-app/public/storage/' + p.images" alt="..." style="width: 50px;height:50px;">
+                            </td>
+                             
+                              <td class="text-center">
+                                {{p.name}}
+                            </td>
+                            <td class="text-center">
+                                {{p.description}}
+                            </td>
+                            <td class="text-center">
+                                {{p.price}}
+                            </td>
+                            <td class="text-center">
+                                {{p.speed}}
+                            </td>
+                            <td class="text-center">
+                                {{p.brand}}
+                            </td>   
+
+                              <td class="text-center">
+                                  <div class="btn-group-sm btn-group" role="group">
+                                    <a class="btn btn-secondary btn-sm text-center" href="productdetails/{{p.id}}"><i class="fas fa-info-circle"></i> Details</a>
+                                    <a class="btn btn-info btn-sm text-center" href="productform/{{p.id}}"><i class="fas fa-wrench"></i> Update</a>
+                                  </div>
+                              </td>
+                            </tr>
+                      </tbody>
+                  </table>
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+          
+          
+              </div><br><br><br> -->
+
+      <!-- //showroom -->
+      <!-- <div class="row mt-4">
+        
+          <div class="main-card mb-3 card">
+            <div class="card-header">
+                <h4 class="card-header-title font-size-lg text-capitalize font-weight-normal">showrooms List</h4>
+                </div>
+            <div class="d-block p-4 text-center card-footer">
+              <button class="btn-pill btn-shadow btn-wide fsize-2 btn btn-success btn-lg" onclick="location.href='showroomform';">
+                <span class="mr-2 opacity-7"><i class="fa fa-cog fa-spin"></i> Insert</span>
+            </button>
+            
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="align-middle text-truncate mb-0 table table-borderless table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">ID</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Address</th>
+                            <th class="text-center">Contact Number</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center"><i class="fas fa-file"></i></th>                            
+                           
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let s of showroom | paginate: { itemsPerPage: 3, currentPage: p }">
+                           
+                           
+                            <td class="text-center">
+                                {{s.id}}
+                            </td>
+                            <td class="text-center">
+                              {{s.name}}
+                          </td>
+                          <td class="text-center">
+                              {{s.address}}
+                          </td>
+                          <td class="text-center">
+                              {{s.contact_number}}
+                          </td>
+                          <td class="text-center">
+                              {{s.email}}
+                          </td>
+                           
+
+                            <td class="text-center">
+                                <div class="btn-group-sm btn-group" role="group">
+                                  <a class="btn btn-secondary btn-sm text-center" href="#"><i class="fas fa-info-circle"></i> Details</a>
+                                  <a class="btn btn-info btn-sm text-center" href="showroomform/{{s.id}}"><i class="fas fa-wrench"></i> Update</a>
+                                </div>
+                            </td>
+                          </tr>
+                    </tbody>
+                </table>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        
+        
+            </div><br><br><br> -->
+
+      <!-- //users -->
+      <!-- <div class="row mt-4">
+      
+            <div class="main-card mb-3 card">
+              <div class="card-header">
+                  <h4 class="card-header-title font-size-lg text-capitalize font-weight-normal">Users List</h4>
+                  </div>
+              <div class="d-block p-4 text-center card-footer">
+                <button class="btn-pill btn-shadow btn-wide fsize-2 btn btn-success btn-lg" onclick="location.href='userupdate';">
+                  <span class="mr-2 opacity-7"><i class="fa fa-cog fa-spin"></i> Insert</span>
+              </button>
+              
+                  </div>
+              </div>
+              <div class="table-responsive">
+                  <table class="align-middle text-truncate mb-0 table table-borderless table-hover">
+                      <thead>
+                          <tr>
+                              <th class="text-center">ID</th>
+                              <th class="text-center">Name</th>
+                              <th class="text-center">Email</th>
+                            
+                              
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let f of users | paginate: { itemsPerPage: 3, currentPage: p }">
+                              
+                             
+                              <td class="text-center">
+                                   {{f.id}}
+                              </td>
+                             
+                              <td class="text-center">
+                                 {{f.name}}
+                            </td>
+                            <td class="text-center">
+                              {{f.email}}
+                          </td>
+
+                          
+
+                              <td class="text-center">
+                                  <div class="btn-group-sm btn-group" role="group">
+                                    <a class="btn btn-danger btn-sm text-center" href="userdetails/{{f.id}}">Delete</a>
+                                    <a class="btn btn-info btn-sm text-center" href="userform/{{f.id}}">Update</a>
+                                  </div>
+                              </td>
+                            </tr>
+                      </tbody>
+                  </table>
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+          
+          
+              </div><br><br><br> -->
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

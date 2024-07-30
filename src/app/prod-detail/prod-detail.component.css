@@ -1,0 +1,152 @@
+/* page */
+/*
+ * Globals
+ */
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+}
+
+/*
+ * Base structure
+ */
+
+body {
+  text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+.cover-container {
+  max-width: 42em;
+}
+
+/*
+ * Header
+ */
+
+.nav-masthead .nav-link {
+  padding: 0.25rem 0;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  border-bottom: 0.25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgb(255, 255, 255);
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* table */
+.spec-table-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.spec-table thead th {
+  background-color: #343a40;
+  color: #fff;
+  border: none;
+  text-transform: uppercase;
+  padding: 1rem;
+}
+
+.spec-table tbody td {
+  border-top: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+
+.spec-table tbody tr:hover td {
+  background-color: #e9ecef;
+}
+
+.spec-table tbody td:first-child {
+  font-weight: bold;
+}
+
+/* car style  */
+.car-detail {
+  padding: 20px;
+}
+.car-price {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.car-specs {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+.car-specs div {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.spec-value {
+  color: #dd3333;
+  font-size: 1.5rem;
+}
+.car-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.car-description {
+  font-size: 1.2rem;
+  color: #555;
+}
+.car-img {
+  max-width: 100%;
+}
+.select-version {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+
+ /* New styles for the User Reviews section */
+ .review-section {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+  margin-top: 5rem;
+}
+
+.review-section h2 {
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.card-text {
+  font-size: 1rem;
+}

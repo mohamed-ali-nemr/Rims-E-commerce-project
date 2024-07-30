@@ -1,0 +1,90 @@
+<head>
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fa;
+    }
+    .cover-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      background-image: url("../../assets/Maintenance.jpg");
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+    }
+    .card-custom {
+      opacity: 0.8; /* Slight transparency */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Small shadow */
+    }
+  </style>
+</head>
+
+<div class="cover-container">
+  <header class="">
+    <nav class="navbar navbar-expand-md navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand me-3" href="#">
+          <img
+            src="../../assets/rims.png"
+            alt="RIMS"
+            class="d-inline-block align-top"
+            width="100"
+            height="50"
+          />
+        </a>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"></li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold active" aria-current="page" href="/home"
+              ><i class="bi bi-house-fill">Home</i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card card-custom rounded-3 bg-dark">
+            <div class="card-body text-center text-white">
+              <h1 class="card-title mb-4 text-danger fw-bold">
+                Maintenance Mode
+              </h1>
+              <p class="card-text mb-4">
+                Our website is currently undergoing scheduled maintenance. We
+                should be back shortly. Thank you for your patience.
+              </p>
+              <div class="mb-4">
+                <p class="fw-bold">Expected Downtime:</p>
+                <p>Start: July 20, 2024, 10:00 PM</p>
+                <p>End: July 21, 2024, 2:00 AM</p>
+              </div>
+              <hr class="my-4" />
+              <p class="mb-4">
+                If you need immediate assistance, please contact our customer
+                support:
+              </p>
+              <p class="mb-2">
+                <i class="fas fa-phone me-2"></i> +1 (800) 123-4567
+              </p>
+              <p><i class="fas fa-envelope me-2"></i> support@example.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

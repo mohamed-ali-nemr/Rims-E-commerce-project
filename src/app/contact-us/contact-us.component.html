@@ -1,0 +1,291 @@
+<head>
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    .contact-section {
+      padding: 50px 0;
+    }
+    .contact-section img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .red-border {
+      border: 5px solid red;
+      position: relative;
+    }
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      padding: 10px;
+    }
+    .faq-section {
+      padding: 50px 0;
+      text-align: center;
+    }
+    .faq-section h2 {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .faq-section p {
+      margin-bottom: 40px;
+      color: #666;
+    }
+    .faq-card {
+      border: none;
+      transition: transform 0.2s;
+    }
+    .faq-card:hover {
+      transform: translateY(-10px);
+    }
+    .faq-card .card-body {
+      padding: 40px 20px;
+    }
+    .faq-card i {
+      font-size: 50px;
+      margin-bottom: 20px;
+      color: #ff4d4d;
+    }
+  </style>
+</head>
+
+<body
+  class="d-flex h-125vh text-center text-white bg-dark"
+  style="
+    background-image: url('../../assets/contactUs.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    object-fit: cover; /* Do not scale the image */
+    border-radius: 1rem; /* Add some rounded corners */
+  "
+>
+  <div class="cover-container d-flex w-100 h-200 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand me-3" href="#">
+            <img
+              src="../../assets/rims.png"
+              alt="RIMS"
+              class="d-inline-block align-top"
+              width="100"
+              height="50"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav font-weight-bold">
+              <li class="nav-item">
+                <a class="nav-link" href="/wish-list"
+                  ><i class="bi bi-heart bi-heart-fill"></i
+                ></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cart"
+                  ><i class="bi bi-cart-fill bi-cart-fill-fill"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="px-3">
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container-fluid">
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav font-weight-bold">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/home">Home</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                  aria-haspopup="true" aria-expanded="false">
+                  Pages
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+       
+                  <a class="dropdown-item text-secondary" href="/category">Category</a>
+                  <a class="dropdown-item text-secondary" href="/detail">Detail</a>
+                  <a class="dropdown-item text-secondary" href="/cart">Cart</a>
+                  <a class="dropdown-item text-secondary" href="/maintenance">Maintenance</a>
+                  <a class="dropdown-item text-secondary" href="/check-out">Check Out</a>
+
+
+                  <div class="dropdown-divider"></div>
+
+                  <a class="dropdown-item text-secondary" href="/blog">Blog</a>
+                  <a class="dropdown-item text-secondary" href="/contact-us">Contact Us</a>
+                  <a class="dropdown-item text-secondary" href="/about-us">About Us</a>
+                  <a class="dropdown-item text-secondary" href="/not-found">Not Found</a>
+
+
+
+                </div>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                  aria-haspopup="true" aria-expanded="false">
+                  Extra Pages
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+                  <a class="dropdown-item text-secondary" href="/login">Login</a>
+                  <a class="dropdown-item text-secondary" href="/register">Register</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <h1 class="cover-heading">
+        Contact Us
+        <span class="fw-bold" style="color: #dd3333">Page</span>
+      </h1>
+    </main>
+  </div>
+</body>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h2>Contact Us and Get a Free Consultation</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your Name" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Subject" />
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email I'd" />
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              rows="4"
+              placeholder="Your Message"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-danger">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-6 text-center">
+        <div
+          style="
+            background-image: url('../assets/contactSection.jpg');
+            background-size: cover;
+            background-position: top;
+            height: 600px;
+            width: 100%;
+            border-radius: 1rem;
+            /* Add some rounded corners */
+            position: relative;
+          "
+        ></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <div class="container">
+    <h2>Most Common Asked Questions</h2>
+    <p>
+      A masterful combination of style, power, sporty handling and comfort. A
+      masterful combination of style, power, sporty handling and comfort.
+    </p>
+    <div class="row">
+      <div
+        class="col-md-3 mb-3"
+        style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)"
+      >
+        <div class="card faq-card">
+          <div class="card-body text-center">
+            <i class="bi bi-question-circle-fill"></i>
+            <h5 class="card-title">General</h5>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-3 mb-3"
+        style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)"
+      >
+        <div class="card faq-card">
+          <div class="card-body text-center">
+            <i class="bi bi-gear-fill"></i>
+            <h5 class="card-title">Engine</h5>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-3 mb-3"
+        style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)"
+      >
+        <div class="card faq-card">
+          <div class="card-body text-center">
+            <i class="bi bi-tools"></i>
+            <h5 class="card-title">Mechanical</h5>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-3 mb-3"
+        style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)"
+      >
+        <div class="card faq-card">
+          <div class="card-body text-center">
+            <i class="bi bi-compass-fill"></i>
+            <h5 class="card-title">Navigation</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
