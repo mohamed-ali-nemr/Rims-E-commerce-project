@@ -70,14 +70,31 @@
                   ><i class="bi bi-cart-fill bi-cart-fill-fill"></i
                 ></a>
               </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-person-fill"> </i>
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+                  <a class="dropdown-item text-secondary" (click)="logout()"
+                    >Logout</a
+                  >
+                </div>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
 
-    <main class="px-3">
-      <nav class="navbar navbar-expand-md navbar-dark">
+    <main class="px-3" *ngIf="!isloginnav()">
+      <nav class="navbar navbar-expand-md navbar-dark" *ngIf="!isloginnav()">
         <div class="container-fluid">
           <div
             class="collapse navbar-collapse justify-content-center"
@@ -85,7 +102,62 @@
           >
             <ul class="navbar-nav font-weight-bold">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/home">Home</a>
+                <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" routerLink="/home"
+                  >Home</a
+                >
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Categories
+                </a>
+                <div class="dropdown-menu bg-dark">
+                  <li *ngFor="let c of category">
+                    <a
+                      [routerLink]="['/category', c.encodedId]"
+                      class="dropdown-item text-secondary"
+                      >{{ c.name }}</a
+                    >
+                  </li>
+                  <div class="dropdown-divider"></div>
+                  <a
+                    class="dropdown-item text-secondary"
+                    routerLink="/AllProducts"
+                    >All Products
+                  </a>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Stores
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+                  <li *ngFor="let s of store">
+                    <a
+                      [routerLink]="['/store', s.encodedId]"
+                      class="dropdown-item text-secondary"
+                      >{{ s.name }}</a
+                    >
+                  </li>
+                </div>
               </li>
 
               <li class="nav-item dropdown">
@@ -100,56 +172,23 @@
                   Pages
                 </a>
                 <div class="dropdown-menu dropdown-menu bg-dark">
-                  <a class="dropdown-item text-secondary" href="/category"
-                    >Category</a
+                  <a
+                    class="dropdown-item text-secondary"
+                    [routerLink]="'/maintenance-order'"
+                    >Order Maintenance</a
                   >
-                  <a class="dropdown-item text-secondary" href="/detail"
-                    >Detail</a
-                  >
-                  <a class="dropdown-item text-secondary" href="/cart">Cart</a>
-                  <a class="dropdown-item text-secondary" href="/wish-list"
-                    >Wishlist</a
-                  >
-
                   <a class="dropdown-item text-secondary" href="/maintenance"
                     >Maintenance</a
                   >
-                  <a class="dropdown-item text-secondary" href="/check-out"
-                    >Check Out</a
-                  >
+                  <a class="dropdown-item text-secondary" href="/blog">Blogs</a>
 
                   <div class="dropdown-divider"></div>
 
-                  <a class="dropdown-item text-secondary" href="/blog">Blog</a>
                   <a class="dropdown-item text-secondary" href="/contact-us"
                     >Contact Us</a
                   >
                   <a class="dropdown-item text-secondary" href="/about-us"
                     >About Us</a
-                  >
-                  <a class="dropdown-item text-secondary" href="/not-found"
-                    >Not Found</a
-                  >
-                </div>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  href="#"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Extra Pages
-                </a>
-                <div class="dropdown-menu dropdown-menu bg-dark">
-                  <a class="dropdown-item text-secondary" href="/login"
-                    >Login</a
-                  >
-                  <a class="dropdown-item text-secondary" href="/register"
-                    >Register</a
                   >
                 </div>
               </li>
@@ -159,7 +198,7 @@
       </nav>
 
       <h1 class="cover-heading">
-        Wishlist <span class="fw-bold" style="color: #dd3333">Page </span>
+        Wishlist <span class="fw-bold" style="color: #dd3333">Page</span>
       </h1>
     </main>
   </div>
@@ -204,7 +243,7 @@
   </style>
 </head>
 
-<div class="container wishlist-container mt-5">
+<!-- <div class="container wishlist-container mt-5">
   <div class="container mb-5">
     <div class="row">
       <div class="col-md-12 text-center">
@@ -222,7 +261,7 @@
       <p>$29.99</p>
     </div>
     <div class="item-actions">
-      <button class="btn btn-success mr-2">
+      <button (click)="addToCart(car)" class="btn btn-success mr-2">
         <i class="fas fa-cart-plus"></i> Add to Cart
       </button>
       <button class="btn btn-danger">
@@ -237,7 +276,7 @@
       <p>$39.99</p>
     </div>
     <div class="item-actions">
-      <button class="btn btn-success mr-2">
+      <button (click)="addToCart(car)" class="btn btn-success mr-2">
         <i class="fas fa-cart-plus"></i> Add to Cart
       </button>
       <button class="btn btn-danger">
@@ -245,6 +284,51 @@
       </button>
     </div>
   </div>
+</div> -->
+
+<!-- src/app/wishlist/wishlist.component.html -->
+
+<div class="container wishlist-container mt-5">
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="fw-bold mt-5"><strong>My Wishlist</strong></h2>
+        <span class="line-grey"></span>
+        <span class="line-orange"></span>
+        <span class="line-grey"></span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="items && items.length > 0; else noItems">
+    <div *ngFor="let item of items" class="wishlist-item">
+      <img [src]="item.image_link" [alt]="item.name" />
+      <div class="item-details">
+        <h5>
+          {{ item.name }}
+          <div class="item-actions" style="float: right">
+            <button class="btn btn-success btn-sm mr-1" (click)="addToCart(item)">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button
+              class="btn btn-sm"
+              (click)="removeFromWishlist(item)"
+              style="background-color: #dd3333"
+            >
+              <i class="fas fa-trash " style="color: #fff"> </i>
+            </button>
+          </div>
+        </h5>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noItems>
+    <div class="text-center">
+      <p>No items in the wishlist.</p>
+    </div>
+  </ng-template>
 </div>
 
 <app-footer></app-footer>

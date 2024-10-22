@@ -35,64 +35,75 @@ import { ShowroomlistDashboardComponent } from './showroomlist-dashboard/showroo
 import { ShowroomdetailsComponent } from './showroomdetails/showroomdetails.component';
 import { OrderlistDashboardComponent } from './orderlist-dashboard/orderlist-dashboard.component';
 import { MaintenceorderlistDashboardComponent } from './maintenceorderlist-dashboard/maintenceorderlist-dashboard.component';
+import { MaintenanceOrderComponent } from './maintenance-order/maintenance-order.component';
+import { StoreComponent } from './store/store.component';
+import { AllProductsComponent } from './all-products/all-products.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'header', component: HeaderComponent },
-  { path: 'footer', component: FooterComponent },
-  { path: 'not-found', component: NotFoundComponent },
-  { path: 'contact-us', component: ContactUsComponent },
-  { path: 'about-us', component: AboutUsComponent },
-  { path: 'check-out', component: CheckOutComponent },
-  { path: 'blog', component: BlogComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'detail', component: ProdDetailComponent },
-  { path: 'category', component: CategoryComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'maintenance', component: MaintenanceComponent },
-  { path: 'wish-list', component: WishlistComponent },
+  {path:'',redirectTo:'login',pathMatch:'full'},
+  {path:'home',component:HomeComponent,canActivate:[AuthGuard]},
+  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  {path:'userlist-dashboard',component:UserlistDashboardComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  {path:'postlist-dashboard',component:PostlistDashboardComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  {path:'productlist-dashboard',component:ProductlistDashboardComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  {path:'categorylist-dashboard',component:CategorylistDashboardComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  {path:'showroomlist-dashboard',component:ShowroomlistDashboardComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  {path:'orderlist-dashboard',component:OrderlistDashboardComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  {path:'maintenceorderlist-dashboard',component:MaintenceorderlistDashboardComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  {path:'login',component:LoginComponent},
+  {path:'register',component:RegisterComponent},
+  {path:'cart',component:CartComponent,canActivate:[AuthGuard]},
+  {path:'wish-list',component:WishlistComponent,canActivate:[AuthGuard]},
+  {path:'check-out',component:CheckOutComponent,canActivate:[AuthGuard]},
+  {path:'contact-us',component:ContactUsComponent,canActivate:[AuthGuard]},
+  {path:'about-us',component:AboutUsComponent,canActivate:[AuthGuard]},
+  {path:'maintenance-order',component:MaintenanceOrderComponent,canActivate:[AuthGuard]},
+  { path: 'header', component: HeaderComponent ,canActivate:[AuthGuard]},
+  { path: 'footer', component: FooterComponent ,canActivate:[AuthGuard]},
+  { path: 'not-found', component: NotFoundComponent ,canActivate:[AuthGuard]},
+  { path: 'blog', component: BlogComponent ,canActivate:[AuthGuard]},
+  { path: 'maintenance',component:MaintenanceComponent},
 
-  // {path:'category/:id',component:CategoryComponent,canActivate:[AuthGuard]},
-  // {path:'card/:id',component:CardComponent,canActivate:[AuthGuard]},
+  
+  // {path:'',component:NotFoundComponent,canActivate:[AuthGuard]}, dont use this route
 
-  // { path: 'api-posts', component: HomeComponent },
-  // { path: '', redirectTo: '/home', pathMatch: 'full' },
 
-  // dashboard routes
-  // {path:'',redirectTo:'dashboard',pathMatch:'full'},
+  
+  {path:'category/:id',component:CategoryComponent,canActivate:[AuthGuard]},
+  {path:'prod-details/:id',component:ProdDetailComponent,canActivate:[AuthGuard]},
+  {path:'store/:id',component:StoreComponent,canActivate:[AuthGuard]},
+  {path:'AllProducts',component:AllProductsComponent,canActivate:[AuthGuard]},
 
-  { path: 'dashboard', component: DashboardComponent }, // Dashboard route
-  { path: 'userlist-dashboard', component: UserlistDashboardComponent },
-  { path: 'postlist-dashboard', component: PostlistDashboardComponent },
-  { path: 'productlist-dashboard', component: ProductlistDashboardComponent },
-  { path: 'categorylist-dashboard', component: CategorylistDashboardComponent },
-  { path: 'showroomlist-dashboard', component: ShowroomlistDashboardComponent },
-  { path: 'orderlist-dashboard', component: OrderlistDashboardComponent },
-  {
-    path: 'maintenceorderlist-dashboard',
-    component: MaintenceorderlistDashboardComponent,
-  },
 
-  { path: 'productform', component: ProductformComponent },
-  { path: 'productform/:id', component: ProductformComponent },
-  { path: 'productdetails/:id', component: ProductdetailsComponent },
 
-  { path: 'categoryform', component: CategoryformComponent },
-  { path: 'categoryform/:id', component: CategoryformComponent },
-  { path: 'categorydetails/:id', component: CategorydetailsComponent },
+  { path:'productform',component:ProductformComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  { path:'productform/:id',component:ProductformComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  { path: 'productdetails/:id',component:ProductdetailsComponent,canActivate:[AuthGuard],data:{role:['admin']}},
 
-  { path: 'postform', component: PostformComponent },
-  { path: 'postform/:id', component: PostformComponent },
-  { path: 'postdetails/:id', component: PostdetailsComponent },
 
-  { path: 'showroomform', component: ShowroomformComponent },
-  { path: 'showroomform/:id', component: ShowroomformComponent },
-  { path: 'showroomdetails/:id', component: ShowroomdetailsComponent },
+  { path:'categoryform',component:CategoryformComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  { path:'categoryform/:id',component:CategoryformComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  { path: 'categorydetails/:id',component:CategorydetailsComponent,canActivate:[AuthGuard],data:{role:['admin']}},
 
-  { path: 'userform', component: UserformComponent },
-  { path: 'userform/:id', component: UserformComponent },
-  { path: 'userdetails/:id', component: UserdetailsComponent },
+
+
+  { path:'postform',component:PostformComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  { path:'postform/:id',component:PostformComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  { path: 'postdetails/:id',component:PostdetailsComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+
+
+
+  { path:'showroomform',component:ShowroomformComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  { path:'showroomform/:id',component:ShowroomformComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  { path: 'showroomdetails/:id',component:ShowroomdetailsComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+
+
+  { path:'userform',component:UserformComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  { path:'userform/:id',component:UserformComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  { path: 'userdetails/:id',component:UserdetailsComponent,canActivate:[AuthGuard],data:{role:['admin']}},
+  
+
 ];
 
 @NgModule({

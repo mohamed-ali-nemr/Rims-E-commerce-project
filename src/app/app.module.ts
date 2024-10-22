@@ -44,6 +44,10 @@ import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { UserformComponent } from './userform/userform.component';
 import { UserlistDashboardComponent } from './userlist-dashboard/userlist-dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MaintenanceOrderComponent } from './maintenance-order/maintenance-order.component';
+import { StoreComponent } from './store/store.component';
+import { AllProductsComponent } from './all-products/all-products.component';
+import { OrdersDoneComponent } from './orders-done/orders-done.component';
 
 
 @NgModule({
@@ -83,6 +87,10 @@ import { HttpClientModule } from '@angular/common/http';
     UserdetailsComponent,
     UserformComponent,
     UserlistDashboardComponent,
+    MaintenanceOrderComponent,
+    StoreComponent,
+    AllProductsComponent,
+    OrdersDoneComponent,
     
 
   ],

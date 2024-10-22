@@ -16,224 +16,27 @@
     </div>
   </div>
 </div>
-<!-- <div class="container mt-5">
-  <div
-    id="carouselExampleIndicators"
-    class="carousel slide"
-    data-ride="carousel"
-  >
-    <div class="carousel-indicators" style="bottom: -50px">
-      <button
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="0"
-        class="active"
-        aria-current="true"
-        aria-label="Slide 1"
-        style="background-color: #dd3333"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="1"
-        aria-label="Slide 2"
-        style="background-color: #dd3333"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="2"
-        aria-label="Slide 3"
-        style="background-color: #dd3333"
-      ></button>
-    </div>
-
-    <div class="carousel-inner" style="max-width: 1200px; margin: 0 auto">
-      <div class="carousel-item active">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="img-hover-container">
-              <img
-                class="d-block w-100"
-                src="../../assets/carasoul1.jpg"
-                alt="..."
-              />
-              <div class="img-hover-text text-start">
-                <h5>Luxury</h5>
-                <p>
-                  A masterful combination of style, power, sporty handling and
-                  comfort.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="img-hover-container">
-              <img
-                class="d-block w-100"
-                src="../../assets/carasoul2.jpg"
-                alt="..."
-              />
-              <div class="img-hover-text text-start">
-                <h5>Sporty Cars</h5>
-                <p>
-                  A masterful combination of style, power, sporty handling and
-                  comfort.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="img-hover-container">
-              <img
-                class="d-block w-100"
-                src="../../assets/carasoul2.jpg"
-                alt="..."
-              />
-              <div class="img-hover-text text-start">
-                <h5>Sporty Cars</h5>
-                <p>
-                  A masterful combination of style, power, sporty handling and
-                  comfort.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="img-hover-container">
-              <img
-                class="d-block w-100"
-                src="../../assets/carasoul3.jpg"
-                alt="..."
-              />
-              <div class="img-hover-text text-start">
-                <h5>Semi Sporty</h5>
-                <p>
-                  A masterful combination of style, power, sporty handling and
-                  comfort.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="img-hover-container">
-              <img
-                class="d-block w-100"
-                src="../../assets/carasoul3.jpg"
-                alt="..."
-              />
-              <div class="img-hover-text text-start">
-                <h5>Semi Sporty</h5>
-                <p>
-                  A masterful combination of style, power, sporty handling and
-                  comfort.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="img-hover-container">
-              <img
-                class="d-block w-100"
-                src="../../assets/carasoul1.jpg"
-                alt="..."
-              />
-              <div class="img-hover-text text-start">
-                <h5>Luxury</h5>
-                <p>
-                  A masterful combination of style, power, sporty handling and
-                  comfort.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <a
-      class="carousel-control-prev"
-      href="#carouselExampleIndicators"
-      role="button"
-      data-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a
-      class="carousel-control-next"
-      href="#carouselExampleIndicators"
-      role="button"
-      data-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div> -->
-<div class="carousel-inner mt-3" style="max-width: 1500px; margin: 0 auto">
+<div class="carousel-inner mt-3" style="max-width: 1250px; margin: 0 auto">
   <div class="carousel-item active">
     <div class="row">
-      <div class="col-md-4 shadow-sm">
+      <div class="col-md-4 " *ngFor="let p of first_category">
         <div class="img-hover-container">
-          <img class="d-block w-100" src="assets/carasoul1.jpg" alt="..." />
+          <a [routerLink]="['/category', p.encodedId]">
+            <img
+              src="{{ p.image_link }}"
+              class="img-fluid"
+              alt="..."
+              style="height: 350px"
+            />
+          </a>
           <div class="img-hover-text text-start">
-            <h5>Luxury</h5>
+            <h5>{{ p.name }}</h5>
             <p>
-              A masterful combination of style, power, sporty handling and
-              comfort.
+              {{ p.description }}
             </p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 shadow-sm">
-        <div class="img-hover-container">
-          <img class="d-block w-100" src="assets/carasoul2.jpg" alt="..." />
-          <div class="img-hover-text text-start">
-            <h5>Sporty Cars</h5>
-            <p>
-              A masterful combination of style, power, sporty handling and
-              comfort.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 shadow-sm">
-        <div class="img-hover-container">
-          <img
-            class="d-block w-100"
-            src="../../assets/carasoul3.jpg"
-            alt="..."
-          />
-          <div class="img-hover-text text-start">
-            <h5>Semi Sporty</h5>
-            <p>
-              A masterful combination of style, power, sporty handling and
-              comfort.
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="col-md-3">
-        <div class="img-hover-container">
-          <img class="d-block w-100" src="assets/carasoul1.jpg" alt="..." />
-          <div class="img-hover-text text-start">
-            <h5>Luxury</h5>
-            <p>
-              A masterful combination of style, power, sporty handling and
-              comfort.
-            </p>
-          </div>
-        </div>
-      </div> -->
-
     </div>
   </div>
 </div>
@@ -290,14 +93,16 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="row">
-        <div class="col-12 mb-4">
+        <div class="col-12 mb-4" *ngFor="let kit of kits">
           <div class="img-hover-container">
-            <img src="../../assets/grid1.jpg" class="img-fluid" alt="" />
+            <!-- <img src="../../assets/grid1.jpg" class="img-fluid" alt="" /> -->
+            <a [routerLink]="['/category', kit.encodedId]">
+              <img [src]="image_link" class="card-img-top" alt="{{ name }}" />
+            </a>
             <div class="img-hover-text text-start">
-              <h5>The Love Of Power Is The Demon Of Men & Women</h5>
+              <h5>{{ pd_name }}</h5>
               <p>
-                A masterful combination of style, power, sporty handling and
-                comfort.
+                {{ description }}
               </p>
             </div>
           </div>
@@ -521,5 +326,7 @@
     </div>
   </div>
 </section>
+
+
 
 <app-footer></app-footer>

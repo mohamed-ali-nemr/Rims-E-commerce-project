@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class ApiService {
 
   newbaseurl="http://localhost/FirstLaravel-app/public/api";
+  userrole: any;
 
   constructor(private http:HttpClient) { }
 
@@ -68,6 +69,10 @@ export class ApiService {
 
   //get all category in home page in first section 
   get_categories(){
+    console.log("get_categories_api");
+    return this.http.get<[]>(this.newbaseurl+'/allcategories');
+  }
+  get_categories_except_kits(){
     console.log("get_categories_api");
     return this.http.get<[]>(this.newbaseurl+'/categories');
   }
@@ -331,7 +336,19 @@ insert_category(categoryData: any){
   }
 
 
+/////////////////////////////////////////////////////////////////////
+IsLoggedIn(){
+  return !!localStorage.getItem('user_data_login')
+}
 
+
+//function to get role data for user if he have data in localstroge
+getRole() {
+  var user_data: any =localStorage.getItem('user_data_login');
+  user_data= JSON.parse(user_data)
+  this.userrole=user_data['type'];
+  return this.userrole;
+}
 
    
 

@@ -1,0 +1,510 @@
+<head>
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body
+  class="d-flex h-125vh text-center text-white bg-dark"
+  style="
+    background-image: url('../../assets/orderMian.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: initial;
+    background-size: cover;
+    object-fit: cover; /* Do not scale the image */
+    border-radius: 1rem; /* Add some rounded corners */
+  "
+>
+  <div class="cover-container d-flex w-100 h-200 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand me-3" href="#">
+            <img
+              src="../../assets/rims.png"
+              alt="RIMS"
+              class="d-inline-block align-top"
+              width="100"
+              height="50"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav font-weight-bold">
+              <li class="nav-item">
+                <a class="nav-link" href="/wish-list"
+                  ><i class="bi bi-heart bi-heart-fill"></i
+                ></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cart"
+                  ><i class="bi bi-cart-fill bi-cart-fill-fill"></i
+                ></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-person-fill"> </i>
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+                  <a class="dropdown-item text-secondary" (click)="logout()"
+                    >Logout</a
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="px-3" *ngIf="!isloginnav()">
+      <nav class="navbar navbar-expand-md navbar-dark" *ngIf="!isloginnav()">
+        <div class="container-fluid">
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav font-weight-bold">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" routerLink="/home"
+                  >Home</a
+                >
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Categories
+                </a>
+                <div class="dropdown-menu bg-dark">
+                  <li *ngFor="let c of category">
+                    <a
+                      [routerLink]="['/category', c.encodedId]"
+                      class="dropdown-item text-secondary"
+                      >{{ c.name }}</a
+                    >
+                  </li>
+                  <div class="dropdown-divider"></div>
+                  <a
+                    class="dropdown-item text-secondary"
+                    routerLink="/AllProducts"
+                    >All Products
+                  </a>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Stores
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+                  <li *ngFor="let s of store">
+                    <a
+                      [routerLink]="['/store', s.encodedId]"
+                      class="dropdown-item text-secondary"
+                      >{{ s.name }}</a
+                    >
+                  </li>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Pages
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+                  <a
+                    class="dropdown-item text-secondary"
+                    [routerLink]="'/maintenance-order'"
+                    >Order Maintenance</a
+                  >
+                  <a class="dropdown-item text-secondary" href="/maintenance"
+                    >Maintenance</a
+                  >
+                  <a class="dropdown-item text-secondary" href="/blog">Blogs</a>
+
+                  <div class="dropdown-divider"></div>
+
+                  <a class="dropdown-item text-secondary" href="/contact-us"
+                    >Contact Us</a
+                  >
+                  <a class="dropdown-item text-secondary" href="/about-us"
+                    >About Us</a
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <h1 class="cover-heading">
+        Order Repair Services <span class="fw-bold" style="color: #dd3333">Page</span>
+      </h1>
+    </main>
+  </div>
+</body>
+
+<!-- fixed image  -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2 class="fw-bold mt-5"><strong>WE REPAIR WITH LOVE</strong></h2>
+      <span class="line-grey"></span>
+      <span class="line-orange"></span>
+      <span class="line-grey"></span>
+      <p class="lead fs-5">
+        A masterful combination of style, power, sporty handling and comfort. A
+        masterful combination of style,<br />
+        power, sporty handling and comfort.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="fixed-bg mt-5">
+  <div class="container">
+    <div
+      class="row text-start content justify-content-center align-items-center"
+    >
+      <div class="col-md-6 col-sm-12">
+        <h1 class="fw-bold text-white">
+          <strong>
+            Why you should choose us? Take a look at our quality features
+            <span style="color: #dd3333">Rims Services</span>
+          </strong>
+        </h1>
+        <p class="fw-bold text-white">
+          Our most popular service is our Virtual Receptionist. We know that
+          sometimes it’s difficult to get to the phone if you are in the middle
+          of something and you don’t want to miss that important call that could
+          be the start of an exciting new business opportunity, so let us answer
+          it for you.
+        </p>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+        <form [formGroup]="formMaintenanceOrder" (ngSubmit)="submit()">
+          <div class="mb-3">
+            <label for="name" class="form-label text-white fw-bold">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              formControlName="name"
+              required
+              maxlength="255"
+            />
+            <div
+              *ngIf="f['name'].touched && f['name'].invalid"
+              style="color: red"
+              class="msgerror"
+            >
+              <div *ngIf="f['name'].errors?.['required']">
+                *Name is required.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label text-white fw-bold"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              formControlName="email"
+              required
+              maxlength="255"
+            />
+            <div
+              *ngIf="f['email'].touched && f['email'].invalid"
+              style="color: red"
+              class="msgerror"
+            >
+              <div *ngIf="f['email'].errors?.['required']">
+                *Email is required.
+              </div>
+              <div *ngIf="f['email'].errors?.['email']">
+                *Email must be a valid email address.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label text-white fw-bold"
+              >Phone</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="phone"
+              name="phone"
+              formControlName="phone"
+              required
+              maxlength="11"
+            />
+            <div
+              *ngIf="f['phone'].touched && f['phone'].invalid"
+              style="color: red"
+              class="msgerror"
+            >
+              <div *ngIf="f['phone'].errors?.['required']">
+                *Phone number is required.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="car" class="form-label text-white fw-bold">Car</label>
+            <input
+              type="text"
+              class="form-control"
+              id="car"
+              name="car"
+              formControlName="car"
+              required
+              maxlength="255"
+            />
+            <div
+              *ngIf="f['car'].touched && f['car'].invalid"
+              style="color: red"
+              class="msgerror"
+            >
+              <div *ngIf="f['car'].errors?.['required']">*Car is required.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="subject" class="form-label text-white fw-bold"
+              >Subject</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="subject"
+              name="subject"
+              formControlName="subject"
+              required
+              maxlength="255"
+            />
+            <div
+              *ngIf="f['subject'].touched && f['subject'].invalid"
+              style="color: red"
+              class="msgerror"
+            >
+              <div *ngIf="f['subject'].errors?.['required']">
+                *Subject is required.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label
+              for="maintenance_center"
+              class="form-label text-white fw-bold"
+              >Maintenance Center</label
+            >
+            <select
+              id="maintenance_center"
+              name="maintenance_center"
+              class="form-control"
+              formControlName="maintenance_center"
+            >
+              <option
+                value=""
+                selected
+                disabled
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center
+              </option>
+              <option
+                value="Maintenance Center New Qairo"
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center New Qairo
+              </option>
+              <option
+                value="Maintenance Center Geza"
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center Geza
+              </option>
+              <option
+                value="Maintenance Center Sharkia"
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center Sharkia
+              </option>
+              <option
+                value="Maintenance Center ElMady"
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center Aswan
+              </option>
+              <option
+                value="Maintenance Center Sohag"
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center Sohag
+              </option>
+              <option
+                value="Maintenance Center North Coast"
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center North Coast
+              </option>
+              <option
+                value="Maintenance Center Ramsis"
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center Ramsis
+              </option>
+              <option
+                value="Maintenance Center Zamalek"
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center Zamalek
+              </option>
+              <option
+                value="Maintenance Center 6th October"
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center 6th October
+              </option>
+              <option
+                value="Maintenance Center Assuit"
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center Assuit
+              </option>
+              <option
+                value="Maintenance Center ElMnofya"
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center ElMnofya
+              </option>
+              <option
+                value="Maintenance Center Alaoqsor"
+                style="background-color: #212529; color: #777"
+              >
+                Maintenance Center Aloqser
+              </option>
+            </select>
+           
+            <div
+              *ngIf="
+                f['maintenance_center'].touched &&
+                f['maintenance_center'].invalid
+              "
+              style="color: red"
+              class="msgerror"
+            >
+              <div *ngIf="f['maintenance_center'].errors?.['required']">
+                *Maintenance Center is required.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="appointment" class="form-label text-white fw-bold"
+              >Appointment</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="appointment"
+              name="appointment"
+              formControlName="appointment"
+              required
+            />
+            <div
+              *ngIf="f['appointment'].touched && f['appointment'].invalid"
+              style="color: red"
+              class="msgerror"
+            >
+              <div *ngIf="f['appointment'].errors?.['required']">
+                *Appointment is required.
+              </div>
+              <div *ngIf="f['appointment'].errors?.['date']">
+                *Appointment must be a valid date.
+              </div>
+            </div>
+          </div>
+          <div class="text-center pt-1 mb-5 pb-1">
+            <button
+              data-mdb-button-init
+              data-mdb-ripple-init
+              class="btn"
+              type="Submit"
+              style="background-color: #dd3333; float: right"
+            >
+              Submit
+            </button>
+          </div>
+          <div *ngIf="msg" class="text-center text-danger">
+            <p>{{ msg }}</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

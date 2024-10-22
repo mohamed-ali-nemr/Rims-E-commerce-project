@@ -29,6 +29,7 @@
     object-fit: cover; /* Do not scale the image */
     border-radius: 1rem; /* Add some rounded corners */
   "
+  *ngIf="!isloginnav()"
 >
   <div class="cover-container d-flex w-100 h-200 p-3 mx-auto flex-column">
     <header class="mb-auto">
@@ -70,14 +71,31 @@
                   ><i class="bi bi-cart-fill bi-cart-fill-fill"></i
                 ></a>
               </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-person-fill"> </i> 
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+                  <a class="dropdown-item text-secondary" (click)="logout()"
+                    >Logout</a
+                  >
+                </div>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
 
-    <main class="px-3">
-      <nav class="navbar navbar-expand-md navbar-dark">
+    <main class="px-3" *ngIf="!isloginnav()">
+      <nav class="navbar navbar-expand-md navbar-dark" *ngIf="!isloginnav()">
         <div class="container-fluid">
           <div
             class="collapse navbar-collapse justify-content-center"
@@ -88,7 +106,59 @@
                 <a class="nav-link" routerLink="/dashboard">Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" routerLink="/home">Home</a>
+                <a class="nav-link" aria-current="page" routerLink="/home"
+                  >Home</a
+                >
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Categories
+                </a>
+                <div class="dropdown-menu bg-dark">
+                  <li *ngFor="let c of category">
+                    <a
+                      [routerLink]="['/category', c.encodedId]"
+                      class="dropdown-item text-secondary"
+                      >{{ c.name }}</a
+                    >
+                  </li>
+                  <div class="dropdown-divider"></div>
+                  <a
+                    class="dropdown-item text-secondary"
+                    routerLink="/AllProducts"
+                    >All Products
+                  </a>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Stores
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+                  <li *ngFor="let s of store">
+                    <a
+                      [routerLink]="['/store', s.encodedId]"
+                      class="dropdown-item text-secondary"
+                      >{{ s.name }}</a
+                    >
+                  </li>
+                </div>
               </li>
 
               <li class="nav-item dropdown">
@@ -103,55 +173,23 @@
                   Pages
                 </a>
                 <div class="dropdown-menu dropdown-menu bg-dark">
-                  <a class="dropdown-item text-secondary" href="/category"
-                    >Category</a
-                  >
-                  <a class="dropdown-item text-secondary" href="/detail"
-                    >Detail</a
-                  >
-                  <a class="dropdown-item text-secondary" href="/cart">Cart</a>
-                  <a class="dropdown-item text-secondary" href="/wish-list"
-                    >Wishlist</a
+                  <a
+                    class="dropdown-item text-secondary"
+                    [routerLink]="'/maintenance-order'"
+                    >Order Maintenance</a
                   >
                   <a class="dropdown-item text-secondary" href="/maintenance"
                     >Maintenance</a
                   >
-                  <a class="dropdown-item text-secondary" href="/check-out"
-                    >Check Out</a
-                  >
+                  <a class="dropdown-item text-secondary" href="/blog">Blogs</a>
 
                   <div class="dropdown-divider"></div>
 
-                  <a class="dropdown-item text-secondary" href="/blog">Blog</a>
                   <a class="dropdown-item text-secondary" href="/contact-us"
                     >Contact Us</a
                   >
                   <a class="dropdown-item text-secondary" href="/about-us"
                     >About Us</a
-                  >
-                  <a class="dropdown-item text-secondary" href="/not-found"
-                    >Not Found</a
-                  >
-                </div>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  href="#"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Extra Pages
-                </a>
-                <div class="dropdown-menu dropdown-menu bg-dark">
-                  <a class="dropdown-item text-secondary" href="/login"
-                    >Login</a
-                  >
-                  <a class="dropdown-item text-secondary" href="/register"
-                    >Register</a
                   >
                 </div>
               </li>

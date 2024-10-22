@@ -1,7 +1,7 @@
-import { HttpClientModule } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
-// import { ApiService } from '../services/api.service';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../services/api.service';
+import { EncodingServiceService } from '../services/encoding-service.service';
 
 @Component({
   selector: 'app-home',
@@ -9,62 +9,140 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-//   @Input() rating: number = 3;
-//   @Input() maxRating: number = 5;
-
-//   stars: boolean[] = [];
-
-//   first_category:any=[]
-//   end_category:any=[]
+  category:any=[];
+  first_category:any=[];
+  end_category:any=[];
+  store:any=[];
+  kits:any=[];
+  products:any=[];
+ image_link:any
+ name:any
+  description: any;
+  pd_name: any;
+  price: any;
   
-//   constructor(private route: ActivatedRoute) {}
-//   ngOnInit(): void {
-//     this.stars = Array(this.maxRating).fill(false).map((_, index) => index < this.rating);
+  constructor(private route: ActivatedRoute,private api:ApiService, private encodingService: EncodingServiceService) {}
+  ngOnInit(): void {
 
-//     // let iduser=this.route.snapshot.paramMap.get('pd_id')
-//     // console.log(iduser);
-//     // let cond = 'pd_id='+iduser
-//     this.api.get_first_cat('').subscribe
-//     ({next:(data:any)=>{
-//       console.log(data);
-//       for(let emp of data){
-//         emp.new_cat_id=btoa(emp.cat_id)
-        
-//         // emp.file=this.apiservice.baseURL+emp.file
-//       }
-//       this.first_category=data;
-//     }})
+   // The `map` method is used to transform each item in the array.
+        // Here, we are transforming each item in the `data` array into a new object
+        // with an additional `encodedId` property. 
+    
+    this.api.get_categories_except_kits().subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.category = data['data'].map((item: any) => {
+          return {
+            ...item,
+            encodedId: this.encodingService.encode(item.id.toString())
+          };
+        });
+      },
+      error: (err: any) => {
+        console.error(err);
+      }
+    });
 
-//     this.api.get_second_cat('').subscribe
-//     ({next:(data2:any)=>{
-//       console.log(data2);
-//       for(let emp of data2){
-//         emp.new_cat_id=btoa(emp.cat_id)
-        
-//         // emp.file=this.apiservice.baseURL+emp.file
-//       }
-//       this.end_category=data2;
-//     }})
-//   }
-// // Mobiles=[{id:'1',name:'IPHONE 10',description:' ',cost:'300',img:'assets/1mob.png',
-// // review:'Reviews (24)',star1:'warning',star2:'warning',star3:'warning',star4:'warning',star5:'muted',page:'category/{{item.pd_category_ID}}'},
-// // {id:'2',name:'Accesable watche',description:' ',cost:'140',img:'assets/2wch.png',
-// // review:'Reviews (36)',star1:'warning',star2:'warning',star3:'warning',star4:'muted',star5:'muted',page:'category/{{item.pd_category_ID}}'},
-// // {id:'3',name:'Airbuds bro',description:' ',cost:'240',img:'assets/2airbuds.png',
-// // review:'Reviews (36)',star1:'warning',star2:'warning',star3:'warning',star4:'warning',star5:'muted',page:'category/{{item.pd_category_ID}}'}
+///////////////////////////////////////////////
 
-// // ]
+    this.api.get_first_three_category().subscribe
+    ({next:(data:any)=>{
+      console.log(data);
+      
+      this.first_category=data['data'].map((item: any) => {
+        return {
+          ...item,
+          encodedId: this.encodingService.encode(item.id.toString())
+        };
+      });
+    },
+    error: (err: any) => {
+      console.error(err);
+    }
+  });
 
+///////////////////////////////////////////////////////
+    this.api.get_seconde_three_category().subscribe
+    ({next:(data2:any)=>{
+      console.log(data2);
+     
+      this.end_category=data2['data'].map((item: any) => {
+        return {
+          ...item,
+          encodedId: this.encodingService.encode(item.id.toString())
+        };
+      });
+    },
+    error: (err: any) => {
+      console.error(err);
+    }
+  });
 
+    ////////////////////////////////
 
+    this.api.get_showrooms().subscribe
+    ({next:(data3:any)=>{
+      console.log(data3);
+      
+      this.store=data3['data'].map((item: any) => {
+        return {
+          ...item,
+          encodedId: this.encodingService.encode(item.id.toString())
+        };
+      });
+    },
+    error: (err: any) => {
+      console.error(err);
+    }
+  });
 
+    /////////////////////////////////////////
 
+    this.api.get_body_kit_category().subscribe({
+      next: (data4: any) => {
+        console.log(data4); // Log data to confirm structure
+    
+        // Ensure data4['data'] is an array with at least one item
+        if (Array.isArray(data4['data']) && data4['data'].length > 0) {
+          // Access the first item in the array, which should be an object
+          const firstItem = data4['data'][0];
+          this.image_link=firstItem['image_link'];
+          this.name=firstItem['name'];
+          this.pd_name=firstItem['pd_name'];
+          this.price=firstItem['price'];
 
-// Lastpost=[{id:'1',name:'Ps',description:' ',cost:'410',img:'assets/1ps.png',
-// review:'Reviews (44)',star1:'warning',star2:'warning',star3:'warning',star4:'warning',star5:'muted',page:'category/{{item.pd_category_ID}}'},
-// {id:'2',name:'Airbuds bro',description:' ',cost:'240',img:'assets/2airbuds.png',
-// review:'Reviews (36)',star1:'warning',star2:'warning',star3:'warning',star4:'warning',star5:'muted',page:'category/{{item.pd_category_ID}}'},
-// {id:'3',name:' magic camera',description:' ',cost:'280.00',img:'assets/3camera.png',
-// review:'Reviews (43)',star1:'warning',star2:'warning',star3:'warning',star4:'warning',star5:'muted',page:'category/{{item.pd_category_ID}}'}
-// ]
+          this.description=firstItem['description'];
+
+          
+          console.log( this.image_link);
+          console.log(this.name);
+          
+          
+          
+    
+          // Check if firstItem is an object and map its properties
+          if (firstItem) {
+            this.kits = [{
+              encodedId: this.encodingService.encode(firstItem.id.toString())
+              
+
+            }];
+          } else {
+            this.kits = []; // Default to empty array if firstItem is not valid
+          }
+        } else {
+          this.kits = []; // Default to empty array if data4['data'] is not valid
+        }
+      },
+      error: (err: any) => {
+        console.error(err);
+      }
+    });
+    
+    
+  }
+  image(image: any) {
+    throw new Error('Method not implemented.');
+  }
+
 }

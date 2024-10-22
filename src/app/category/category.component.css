@@ -1,4 +1,3 @@
-/* header  */
 /*
  * Globals
  */
@@ -18,10 +17,11 @@
 body {
   text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+  color: white; /* Set text color to white */
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: 55em;
 }
 
 /*
@@ -30,15 +30,19 @@ body {
 
 .nav-masthead .nav-link {
   padding: 0.25rem 0;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.5);
+  font-weight: 800;
+  color: white; /* Nav link color set to white */
   background-color: transparent;
   border-bottom: 0.25rem solid transparent;
 }
 
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
-  border-bottom-color: rgb(255, 255, 255);
+  border-bottom-color: rgb(
+    255,
+    255,
+    255
+  ); /* Set border bottom color to white on hover/focus */
 }
 
 .nav-masthead .nav-link + .nav-link {
@@ -46,8 +50,8 @@ body {
 }
 
 .nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
+  color: #fff; /* Active nav link color set to white */
+  border-bottom-color: #fff; /* Active border bottom color set to white */
 }
 
 /* card  for categoty */

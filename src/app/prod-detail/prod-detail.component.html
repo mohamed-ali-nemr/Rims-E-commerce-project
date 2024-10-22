@@ -13,8 +13,6 @@
         font-size: 3.5rem;
       }
     }
-
-   
   </style>
 </head>
 
@@ -72,14 +70,31 @@
                   ><i class="bi bi-cart-fill bi-cart-fill-fill"></i
                 ></a>
               </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-person-fill"> </i>
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+                  <a class="dropdown-item text-secondary" (click)="logout()"
+                    >Logout</a
+                  >
+                </div>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
 
-    <main class="px-3">
-      <nav class="navbar navbar-expand-md navbar-dark">
+    <main class="px-3" *ngIf="!isloginnav()">
+      <nav class="navbar navbar-expand-md navbar-dark" *ngIf="!isloginnav()">
         <div class="container-fluid">
           <div
             class="collapse navbar-collapse justify-content-center"
@@ -87,7 +102,62 @@
           >
             <ul class="navbar-nav font-weight-bold">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/home">Home</a>
+                <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" routerLink="/home"
+                  >Home</a
+                >
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Categories
+                </a>
+                <div class="dropdown-menu bg-dark">
+                  <li *ngFor="let c of category">
+                    <a
+                      [routerLink]="['/category', c.encodedId]"
+                      class="dropdown-item text-secondary"
+                      >{{ c.name }}</a
+                    >
+                  </li>
+                  <div class="dropdown-divider"></div>
+                  <a
+                    class="dropdown-item text-secondary"
+                    routerLink="/AllProducts"
+                    >All Products
+                  </a>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Stores
+                </a>
+                <div class="dropdown-menu dropdown-menu bg-dark">
+                  <li *ngFor="let s of store">
+                    <a
+                      [routerLink]="['/store', s.encodedId]"
+                      class="dropdown-item text-secondary"
+                      >{{ s.name }}</a
+                    >
+                  </li>
+                </div>
               </li>
 
               <li class="nav-item dropdown">
@@ -102,52 +172,23 @@
                   Pages
                 </a>
                 <div class="dropdown-menu dropdown-menu bg-dark">
-                  <a class="dropdown-item text-secondary" href="/category"
-                    >Category</a
+                  <a
+                    class="dropdown-item text-secondary"
+                    [routerLink]="'/maintenance-order'"
+                    >Order Maintenance</a
                   >
-                  <a class="dropdown-item text-secondary" href="/detail"
-                    >Detail</a
-                  >
-                  <a class="dropdown-item text-secondary" href="/cart">Cart</a>
                   <a class="dropdown-item text-secondary" href="/maintenance"
                     >Maintenance</a
                   >
-                  <a class="dropdown-item text-secondary" href="/check-out"
-                    >Check Out</a
-                  >
+                  <a class="dropdown-item text-secondary" href="/blog">Blogs</a>
 
                   <div class="dropdown-divider"></div>
 
-                  <a class="dropdown-item text-secondary" href="/blog">Blog</a>
                   <a class="dropdown-item text-secondary" href="/contact-us"
                     >Contact Us</a
                   >
                   <a class="dropdown-item text-secondary" href="/about-us"
                     >About Us</a
-                  >
-                  <a class="dropdown-item text-secondary" href="/not-found"
-                    >Not Found</a
-                  >
-                </div>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  href="#"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Extra Pages
-                </a>
-                <div class="dropdown-menu dropdown-menu bg-dark">
-                  <a class="dropdown-item text-secondary" href="/login"
-                    >Login</a
-                  >
-                  <a class="dropdown-item text-secondary" href="/register"
-                    >Register</a
                   >
                 </div>
               </li>
@@ -157,23 +198,23 @@
       </nav>
 
       <h1 class="cover-heading">
-        Vehicle Overview
-        <span class="fw-bold" style="color: #dd3333">Page</span>
+        Details <span class="fw-bold" style="color: #dd3333">Page</span>
       </h1>
     </main>
   </div>
 </body>
 
 <div class="container mt-5">
+  <!-- first row -->
   <div class="container car-detail">
-    <div class="row">
+    <div class="row" *ngFor="let p of product">
       <div class="col-md-6">
-        <h2 class="car-title">Ghibli S</h2>
+        <h2 class="car-title">{{ p.name }}</h2>
         <p class="car-description">YOU'RE NOT LIKE EVERYONE ELSE</p>
         <p class="car-description">
           A masterful combination of style, power, sporty handling and comfort.
         </p>
-        <p class="car-price">$50,000</p>
+        <p class="car-price">${{ p.price }}</p>
         <div class="car-specs row">
           <div class="col-4 text-center">
             <div>Max Power</div>
@@ -202,11 +243,16 @@
         </div>
       </div>
       <div class="col-md-6">
-        <img src="../../assets/details.jpg" alt="Car Image" class="car-img" />
+        <img
+          src="{{ p.image_link }}"
+          class="card-img-top"
+          alt="..."
+        />
       </div>
     </div>
   </div>
 
+  <!-- seconed row -->
   <div class="container mt-5">
     <div class="row">
       <div class="col-12">
@@ -257,6 +303,7 @@
     </div>
   </div>
 
+  <!-- third row -->
   <section class="review-section shadow-sm">
     <div class="container">
       <div class="text-center mb-4">
@@ -265,49 +312,21 @@
       </div>
 
       <div class="row">
-        <div class="col-md-4 mb-4 text-center">
+        <div class="col-md-4 mb-4 text-center" *ngFor="let r of review| paginate: { itemsPerPage: 4, currentPage: p }">
           <figure class="figure">
-            <img
-              src="../../assets/review1.jpg"
-              class="figure-img img-fluid rounded-circle"
-              alt="John Doe"
-            />
-            <figcaption class="figure-caption">John Doe</figcaption>
+            <i class="fas fa-user-circle" style="font-size: 40px"></i>
+            <figcaption class="figure-caption mt-1">Review</figcaption>
             <blockquote class="blockquote mt-3">
               <p class="mb-0">
-                This is the best service I have ever used. Highly recommend!
+                {{ r.comment }}
               </p>
             </blockquote>
           </figure>
         </div>
-        <div class="col-md-4 mb-4 text-center">
-          <figure class="figure">
-            <img
-              src="../../assets/review2.jpg"
-              class="figure-img img-fluid rounded-circle"
-              alt="John Doe"
-            />
-            <figcaption class="figure-caption">Jane Smith</figcaption>
-            <blockquote class="blockquote mt-3">
-              <p class="mb-0">
-                Great experience, but there's always room for improvement.
-              </p>
-            </blockquote>
-          </figure>
-        </div>
-        <div class="col-md-4 mb-4 text-center">
-          <figure class="figure">
-            <img
-              src="../../assets/review1.jpg"
-              class="figure-img img-fluid rounded-circle"
-              alt="John Doe"
-            />
-            <figcaption class="figure-caption">Sam Wilson</figcaption>
-            <blockquote class="blockquote mt-3">
-              <p class="mb-0">Amazing service! Will use again for sure.</p>
-            </blockquote>
-          </figure>
-        </div>
+        <pagination-controls
+          (pageChange)="p = $event"
+          class="text-center"
+        ></pagination-controls>
       </div>
     </div>
 
@@ -317,25 +336,14 @@
         <hr class="bg-dark mb-4" style="height: 2px; border-radius: 10px" />
       </div>
 
-      <form>
-        <div class="form-group row">
-          <label for="email" class="col-sm-2 col-form-label">Email</label>
-          <div class="col-sm-10">
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="Enter your email i'd"
-            />
-          </div>
-        </div>
-
+      <form [formGroup]="formreview">
         <div class="form-group row">
           <label for="review" class="col-sm-2 col-form-label">Review</label>
           <div class="col-sm-10">
             <textarea
               class="form-control"
-              id="review"
+              formControlName="comment"
+              id="comment"
               placeholder="Your review is recommended to be at least 140 characters long"
             ></textarea>
           </div>
@@ -346,6 +354,7 @@
               type="submit"
               class="btn"
               style="background-color: #dd3333; color: #fff; float: right"
+              (click)="submit()"
             >
               Submit Review
             </button>
